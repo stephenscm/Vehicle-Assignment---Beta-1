@@ -10,7 +10,7 @@
 <body>
     <div class="container">
         <h1>Vehicle Assignment</h1>
-        
+
         <!-- Move the vehicle list to the top -->
         <div class="vehicle-list">
             <h2>Vehicle List</h2>
@@ -19,6 +19,9 @@
 
         <div class="vehicle-form">
             <h2>Add Vehicle</h2>
+            <label for="vehicle-name">Vehicle Name:</label>
+            <input type="text" id="vehicle-name">
+
             <label for="vehicle-type">Vehicle Type:</label>
             <select id="vehicle-type" onchange="checkCustomVehicleType()">
                 <option value="car">Car</option>
