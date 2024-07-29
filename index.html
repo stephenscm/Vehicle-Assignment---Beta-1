@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vehicle Assignment</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="icon" href="favicon.ico" type="image/x-icon"> <!-- Optional: Add a favicon -->
+</head>
+<body>
+    <div class="container">
+        <h1>Vehicle Assignment</h1>
+        
+        <!-- Move the vehicle list to the top -->
+        <div class="vehicle-list">
+            <h2>Vehicle List</h2>
+            <div id="vehicles"></div>
+        </div>
+
+        <div class="vehicle-form">
+            <h2>Add Vehicle</h2>
+            <label for="vehicle-type">Vehicle Type:</label>
+            <select id="vehicle-type" onchange="checkCustomVehicleType()">
+                <option value="car">Car</option>
+                <option value="suv">SUV</option>
+                <option value="van">Van</option>
+                <option value="bus">Bus</option>
+                <option value="custom">Custom</option>
+            </select>
+            
+            <input type="text" id="custom-vehicle-type" placeholder="Enter custom vehicle type" style="display:none;">
+
+            <label for="driver-name">Driver Name:</label>
+            <input type="text" id="driver-name">
+
+            <label for="phone-number">Phone Number:</label>
+            <input type="text" id="phone-number">
+
+            <label for="vehicle-description">Vehicle Description:</label>
+            <input type="text" id="vehicle-description">
+
+            <button id="add-vehicle-btn" onclick="addVehicle()">Add Vehicle</button>
+            <button id="update-vehicle-btn" onclick="updateVehicle()" style="display:none;">Update Vehicle</button>
+        </div>
+
+        <div class="occupant-form">
+            <h2>Assign Occupants</h2>
+            <label for="occupant-name">Occupant Name:</label>
+            <select id="occupant-name"></select>
+
+            <label for="select-vehicle">Select Vehicle:</label>
+            <select id="select-vehicle"></select>
+
+            <button onclick="assignOccupant()">Assign Occupant</button>
+        </div>
+
+        <div class="occupant-management">
+            <h2>Manage Occupant Names</h2>
+            <label for="new-occupant-name">New Occupant Name:</label>
+            <input type="text" id="new-occupant-name">
+            <button onclick="addOccupant()">Add Occupant</button>
+
+            <h3>Current Occupants</h3>
+            <ul id="occupant-list"></ul>
+        </div>
+    </div>
+    <script src="scripts.js"></script>
+</body>
+</html>
