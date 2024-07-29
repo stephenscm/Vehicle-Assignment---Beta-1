@@ -1,5 +1,6 @@
+/* General Styles */
 body {
-    font-family: Arial, sans-serif;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     background-color: #f4f4f4;
     margin: 0;
     padding: 0;
@@ -11,10 +12,12 @@ body {
     padding: 20px;
     background-color: #fff;
     box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    border-radius: 10px;
 }
 
 h1, h2, h3 {
     text-align: center;
+    color: #333;
 }
 
 .vehicle-form, .occupant-form, .occupant-management {
@@ -24,6 +27,7 @@ h1, h2, h3 {
 label {
     display: block;
     margin-top: 10px;
+    color: #555;
 }
 
 input, select {
@@ -31,6 +35,9 @@ input, select {
     padding: 8px;
     margin-top: 5px;
     box-sizing: border-box;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
 }
 
 button {
@@ -39,43 +46,4 @@ button {
     padding: 10px;
     margin-top: 10px;
     background-color: #007BFF;
-    color: white;
-    border: none;
-    cursor: pointer;
-}
-
-button:hover {
-    background-color: #0056b3;
-}
-
-.vehicle-list, .occupant-management {
-    margin-top: 20px;
-}
-
-.vehicle {
-    background-color: #f9f9f9;
-    margin: 10px 0;
-    padding: 10px;
-    border: 1px solid #ddd;
-}
-
-.vehicle h3 {
-    margin: 0;
-}
-
-.vehicle-buttons {
-    display: flex;
-    justify-content: space-between;
-    margin-top: 10px;
-}
-
-.vehicle-buttons button {
-    width: 48%;
-    background-color: #dc3545;
-}
-
-.vehicle-buttons button.edit-btn {
-    background-color: #28a745;
-}
-
-.vehicle-buttons button
+   
