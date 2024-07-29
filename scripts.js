@@ -19,6 +19,7 @@ function checkCustomVehicleType() {
 }
 
 function addVehicle() {
+    const vehicleName = document.getElementById('vehicle-name').value;
     let type = document.getElementById('vehicle-type').value;
     const customType = document.getElementById('custom-vehicle-type').value;
     
@@ -31,6 +32,7 @@ function addVehicle() {
     const description = document.getElementById('vehicle-description').value;
 
     const vehicle = {
+        name: vehicleName,
         type,
         driverName,
         phoneNumber,
@@ -45,6 +47,7 @@ function addVehicle() {
 }
 
 function clearVehicleForm() {
+    document.getElementById('vehicle-name').value = '';
     document.getElementById('vehicle-type').value = 'car';
     document.getElementById('custom-vehicle-type').value = '';
     document.getElementById('custom-vehicle-type').style.display = 'none';
@@ -64,7 +67,8 @@ function updateVehicleList() {
         const vehicleDiv = document.createElement('div');
         vehicleDiv.className = 'vehicle';
         vehicleDiv.innerHTML = `
-            <h3>${vehicle.type}</h3>
+            <h3>${vehicle.name}</h3>
+            <p><strong>Type:</strong> ${vehicle.type}</p>
             <p><strong>Driver:</strong> ${vehicle.driverName}</p>
             <p><strong>Phone:</strong> ${vehicle.phoneNumber}</p>
             <p><strong>Description:</strong> ${vehicle.description}</p>
@@ -85,7 +89,7 @@ function updateVehicleDropdown() {
     vehicles.forEach((vehicle, index) => {
         const option = document.createElement('option');
         option.value = index;
-        option.textContent = `${vehicle.type} - ${vehicle.description}`;
+        option.textContent = `${vehicle.name} - ${vehicle.type}`;
         selectVehicle.appendChild(option);
     });
 }
@@ -140,6 +144,7 @@ function addOccupant() {
 
 function editVehicle(index) {
     const vehicle = vehicles[index];
+    document.getElementById('vehicle-name').value = vehicle.name;
     document.getElementById('vehicle-type').value = vehicle.type;
     if (!['car', 'suv', 'van', 'bus'].includes(vehicle.type)) {
         document.getElementById('vehicle-type').value = 'custom';
@@ -160,6 +165,7 @@ function editVehicle(index) {
 
 function updateVehicle() {
     if (currentEditIndex >= 0) {
+        const vehicleName = document.getElementById('vehicle-name').value;
         let type = document.getElementById('vehicle-type').value;
         const customType = document.getElementById('custom-vehicle-type').value;
 
@@ -172,11 +178,12 @@ function updateVehicle() {
         const description = document.getElementById('vehicle-description').value;
 
         vehicles[currentEditIndex] = {
-            ...vehicles[currentEditIndex],
+            name: vehicleName,
             type,
             driverName,
             phoneNumber,
-            description
+            description,
+            occupants: vehicles[currentEditIndex].occupants
         };
 
         clearVehicleForm();
